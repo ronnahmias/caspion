@@ -1,10 +1,22 @@
 name: Update israeli-bank-scrapers
 
 on:
-  # Trigger daily
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'information'
+        type: choice
+        options:
+          - information
+          - debug
+          - warning
+          - critical
+      tags:
+        description: 'Purpose of Run This Workflow?'
+        required: true
+        type: string
 
 jobs:
   update:
