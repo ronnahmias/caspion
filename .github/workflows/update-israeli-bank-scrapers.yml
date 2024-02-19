@@ -36,25 +36,25 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Check for updates in israeli-bank-scrapers
-        run: yarn outdated israeli-bank-scrapers --json
+      - name: Check for updates in israeli-bank-scrapers-core
+        run: yarn outdated israeli-bank-scrapers-core --json
 
-      - name: Upgrade israeli-bank-scrapers
-        run: yarn upgrade israeli-bank-scrapers
+      - name: Upgrade israeli-bank-scrapers-core
+        run: yarn upgrade israeli-bank-scrapers-core
 
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "chore: Upgrade israeli-bank-scrapers library" || echo "No changes to commit"
+          git commit -m "chore: Upgrade israeli-bank-scrapers-core library" || echo "No changes to commit"
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore: Upgrade israeli-bank-scrapers library'
-          title: 'Upgrade israeli-bank-scrapers library'
+          commit-message: 'chore: Upgrade israeli-bank-scrapers-core library'
+          title: 'Upgrade israeli-bank-scrapers-core library'
           body: |
             Changes:
             - [Diff Link](link_to_diff)
